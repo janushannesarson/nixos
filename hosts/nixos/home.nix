@@ -50,11 +50,11 @@ in {
   };
 
   # Browser
-  firefox.enable = true;
+  programs.firefox.enable = true;
 
   programs.direnv = {
     enable = true;
-    enableFishIntegration = true;
+    # enableFishIntegration = true; true by default
     nix-direnv.enable = true;
   };
 
@@ -83,7 +83,7 @@ in {
   };
 
   # Git
-  git = {
+  programs.git = {
     enable = true;
     userName = "janushannesarson";
     userEmail = "janushannesarson@gmail.com";
@@ -509,7 +509,7 @@ in {
   # Out of store symlinks
   home.file.".local/bin".source = config.lib.file.mkOutOfStoreSymlink "/home/janus/repos/dotfiles/.local/bin/";
   xdg.configFile = {
-    "kitty".source = "${dotfiles}/.config/kitty";
+    # "kitty".source = "${dotfiles}/.config/kitty";
     "zellij".source = "${dotfiles}/.config/zellij";
     "nvim".source = "${dotfiles}/.config/nvim";
     "Code/User".source = "${dotfiles}/.config/Code/User";

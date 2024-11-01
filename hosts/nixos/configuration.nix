@@ -91,7 +91,9 @@ in {
     ];
   };
 
-  users.defaultUserShell = pkgs.fish;
+  hardware.pulseaudio.enable = false;
+
+  # users.defaultUserShell = pkgs.fish;
   users.users.janus = {
     isNormalUser = true;
     description = "Janus Hannesarson";
@@ -150,7 +152,7 @@ in {
 
     emmet-ls
 
-    unstable.vscode-langservers-extracted
+    vscode-langservers-extracted
     
     vim
     ripgrep
