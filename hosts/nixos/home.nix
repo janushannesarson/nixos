@@ -295,13 +295,15 @@ in {
   wayland.windowManager.hyprland = {
   	package = inputs.hyprland.packages.${pkgs.system}.hyprland;  
   	enable = true;
+	extraConfig = ''
+	'';
   };
 
   # Out of store symlinks
   home.file.".local/bin".source = config.lib.file.mkOutOfStoreSymlink "/home/janus/repos/dotfiles/.local/bin/";
   xdg.configFile = {
     # "kitty".source = "${dotfiles}/.config/kitty";
-    "hypr".source = "${dotfiles}/.config/hypr";
+    # "hypr".source = "${dotfiles}/.config/hypr";
     "zellij".source = "${dotfiles}/.config/zellij";
     "nvim".source = "${dotfiles}/.config/nvim";
     "Code/User".source = "${dotfiles}/.config/Code/User";
