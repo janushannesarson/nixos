@@ -39,10 +39,12 @@ in {
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "CascadiaCode" ]; })
     noto-fonts
+	font-awesome
   ];
 
   # Home Manager
   home-manager = {
+    backupFileExtension = "hm-backup";
     extraSpecialArgs = { inherit inputs username; };
     useGlobalPkgs = true;
     useUserPackages = true;
@@ -93,7 +95,8 @@ in {
 
   hardware.pulseaudio.enable = false;
 
-  # users.defaultUserShell = pkgs.fish;
+  programs.fish.enable = true;
+  users.defaultUserShell = pkgs.fish;
   users.users.janus = {
     isNormalUser = true;
     description = "Janus Hannesarson";
@@ -127,6 +130,13 @@ in {
     enable = true;
     xwayland.enable = true;
   };
+
+	programs.steam = {
+	  enable = true;
+	  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+	  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+	  localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+	};
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   # List packages installed in system profile. To search, run:
