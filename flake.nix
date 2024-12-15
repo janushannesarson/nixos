@@ -20,6 +20,11 @@
       specialArgs = { inherit inputs; };
       modules = [ ./hosts/nixos/configuration.nix ];
     };
+    nixosConfigurations.nixos-xps13 = nixpkgs.lib.nixosSystem {
+	  system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
+      modules = [ ./hosts/nixos-xps13/configuration.nix ];
+    };
   };
 }
 
