@@ -51,6 +51,11 @@ in {
     users.janus.imports = [ ./home.nix ];
   };
 
+	services.postgresql = {
+	  enable = true;
+	  package = pkgs.postgresql; 
+	};
+
   # Bluetooth
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
@@ -148,6 +153,12 @@ in {
     libnotify
     swww
     stow
+	networkmanagerapplet
+
+	elixir_1_16
+	postgresql
+	inotify-tools
+
     
     vscode-fhs
     google-chrome

@@ -45,7 +45,6 @@ in {
     enable = true;
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
-      bind \cf ~/.local/bin/zellijsessionizer.sh 
     '';
     functions.fish_prompt = {
       body = ''

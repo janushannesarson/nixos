@@ -16,7 +16,10 @@ in {
     grim
     slurp
 
+	wezterm
+  	difftastic
 	yazi
+	tmux
 
     discord
     vesktop # Third party Discord client
@@ -45,7 +48,6 @@ in {
     enable = true;
     interactiveShellInit = ''
       set fish_greeting # Disable greeting
-      bind \cf ~/.local/bin/zellijsessionizer.sh 
     '';
     functions.fish_prompt = {
       body = ''
@@ -62,6 +64,16 @@ in {
   programs.fzf = {
     enable = true;
     enableFishIntegration = true;
+  };
+
+  programs.tmux = {
+    enable = true;
+	extraConfig = ''
+set -g base-index 1
+set -g pane-base-index 1
+bind-key -r f run-shell "tmux neww ~/.local/bin/tmuxsessionizer.sh"
+	'';
+
   };
 
   # Browser
@@ -574,6 +586,10 @@ bind = $mainMod shift, H, movewindow, l
 bind = $mainMod shift, L, movewindow, r
 bind = $mainMod shift, K, movewindow, u
 bind = $mainMod shift, J, movewindow, d
+
+# Layout Change
+bind = $mainMod, comma, exec, hyprctl keyword general:layout "dwindle"
+bind = $mainMod, period, exec, hyprctl keyword general:layout "master"
 
 
 ##############################
