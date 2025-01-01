@@ -158,38 +158,38 @@ in
     dunst
     libnotify
     swww
-    stow
     networkmanagerapplet
 
-    elixir_1_16
     postgresql
     inotify-tools
 
+
+    # Screenshot
+    swappy
+    grim
+    slurp
+
+
+    pavucontrol # Audio control gui
+
     vscode-fhs
     google-chrome
-    neovim
-    lazygit
     wl-clipboard
     spotify
 
-    lua-language-server
-    rust-analyzer
     djlint
     prettierd
 
     brightnessctl
-
-    emmet-ls
-
-    vscode-langservers-extracted
-
 	home-manager
+
+    discord
+    vesktop # Third party Discord client
     
     vim
     ripgrep
     unzip
     gcc
-    zellij
 
     udiskie
 
