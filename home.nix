@@ -150,7 +150,7 @@ in
   wayland.windowManager.hyprland = {
     # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     enable = true;
-    extraConfig = bultins.readFile "./hyprland/extraConfig.conf";
+    extraConfig = bultins.readFile "./home-manager/hyprland/extraConfig.conf";
   };
 
   # Out of store symlinks
