@@ -1,11 +1,11 @@
-{ inputs, pkgs, ... }:
+{ pkgs, ... }:
 let
   username = "janus";
 in
 {
   imports = [
     ./hardware-configuration.nix
-    inputs.home-manager.nixosModule
+    # inputs.home-manager.nixosModule
   ];
 
   # Bootloader.
@@ -44,15 +44,15 @@ in
   ];
 
   # Home Manager
-  home-manager = {
-    backupFileExtension = "hm-backup";
-    extraSpecialArgs = {
-      inherit inputs username;
-    };
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users.janus.imports = [ ./home.nix ];
-  };
+  # home-manager = {
+  #   backupFileExtension = "hm-backup";
+  #   extraSpecialArgs = {
+  #     inherit inputs username;
+  #   };
+  #   useGlobalPkgs = true;
+  #   useUserPackages = true;
+  #   users.janus.imports = [ ./home.nix ];
+  # };
 
   services.postgresql = {
     enable = true;
@@ -189,7 +189,6 @@ in
     ripgrep
     unzip
     gcc
-    helix
     zellij
 
     udiskie
@@ -206,12 +205,12 @@ in
     "flakes"
   ];
 
-  nix.settings = {
-    substituters = [ "https://hyprland.cachix.org" ];
-    trusted-public-keys = [
-      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-    ];
-  };
+  # nix.settings = {
+  #   substituters = [ "https://hyprland.cachix.org" ];
+  #   trusted-public-keys = [
+  #     "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+  #   ];
+  # };
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.05";

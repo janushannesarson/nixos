@@ -1,15 +1,15 @@
 {
-  inputs,
   config,
   pkgs,
-  username,
   ...
 }:
 let
+  username = "janus";
   homeDirectory = "/home/${username}";
   dotfiles = config.lib.file.mkOutOfStoreSymlink "${homeDirectory}/repos/dotfiles";
 in
 {
+  nixpkgs.config.allowUnfree = true;
   # Make home-manager manage itself
   programs.home-manager.enable = true;
 
@@ -342,7 +342,7 @@ in
 
   # Compositor
   wayland.windowManager.hyprland = {
-    package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+    # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
     enable = true;
     extraConfig = ''
       # #######################################################################################
