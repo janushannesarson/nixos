@@ -14,12 +14,20 @@ return {
 		})
 		-- use `fzf-lua` for replace vim.ui.select
 		require("fzf-lua").register_ui_select()
-		vim.keymap.set("n", "<leader>ff", require('fzf-lua').files, { desc = "Find Files" })
-		vim.keymap.set("n", "<leader>fg", require('fzf-lua').live_grep, { desc = "Live Grep" })
-		vim.keymap.set("n", "<leader>fb", require('fzf-lua').buffers, { desc = "Find Buffers" })
-		vim.keymap.set("n", "<leader>fs", require('fzf-lua').git_status, { desc = "Git Status" })
-		vim.keymap.set("n", "<leader>fd", require('fzf-lua').diagnostics_workspace, { desc = "Workspace Diagnostics" })
-		vim.keymap.set("n", "<leader>fD", require('fzf-lua').diagnostics_document, { desc = "Document Diagnostics" })
+		vim.keymap.set("n", "<leader>ff", require("fzf-lua").files, { desc = "Find Files" })
+		vim.keymap.set("n", "<leader>fg", require("fzf-lua").live_grep, { desc = "Live Grep" })
+		vim.keymap.set("n", "<leader>fb", require("fzf-lua").buffers, { desc = "Find Buffers" })
+		vim.keymap.set("n", "<leader>fs", require("fzf-lua").git_status, { desc = "Git Status" })
+		vim.keymap.set("n", "<leader>fd", require("fzf-lua").diagnostics_workspace, { desc = "Workspace Diagnostics" })
+		vim.keymap.set("n", "<leader>fD", require("fzf-lua").diagnostics_document, { desc = "Document Diagnostics" })
+
+		-- under cursor
+		vim.keymap.set("n", "<leader>fr", require("fzf-lua").lsp_references, { desc = "References" })
+		vim.keymap.set("n", "<leader>fd", require("fzf-lua").lsp_definitions, { desc = "Definitions" })
+		vim.keymap.set("n", "<leader>fl", require("fzf-lua").lsp_finder, { desc = "LSP Finder" })
+
+		-- visual
+		vim.keymap.set("v", "<leader>fg", require("fzf-lua").grep_visual, { desc = "Grep Visual" })
 
 		-- local fzf = require('fzf-lua')
 		-- local function get_directories_in_repos()
@@ -65,5 +73,5 @@ return {
 		-- 		},
 		-- 	},
 		-- })
-	end
+	end,
 }

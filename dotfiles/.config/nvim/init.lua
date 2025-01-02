@@ -40,5 +40,5 @@ vim.cmd([[set clipboard+=unnamedplus]])
 vim.cmd([[set showtabline=0]])
 
 -- Navigate the quickfix list
-vim.keymap.set("n", "]q", ":cnext<CR>", { desc = "Next quickfix item", silent = true })
-vim.keymap.set("n", "[q", ":cprevious<CR>", { desc = "Previous quickfix item", silent = true })
+vim.keymap.set("n", "<c-j>", ":cnext<CR>", { desc = "Next quickfix item", silent = true })
+vim.keymap.set("n", "<c-k>", ":cprevious<CR>", { desc = "Previous quickfix item", silent = true })
