@@ -23,6 +23,10 @@ in
 	vscode-langservers-extracted
   ];
 
+  home.shellAliases = {
+  	tm = "tmux new -As0";
+  };
+
   programs.yazi.enable = true;
 
   # Terminal Emulator
