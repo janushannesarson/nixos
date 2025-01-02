@@ -5,8 +5,11 @@ return {
 		version = "*",
 		config = function()
 			require("toggleterm").setup({
-				open_mapping = [[<c-\>]],
+				open_mapping = [[<c-t>]],
 				direction = "tab",
+				start_in_insert = false,
+				insert_mappings = true,
+				terminal_mappings = true,
 				winbar = {
 					enabled = false,
 					name_formatter = function(term) --  term: Terminal
@@ -19,11 +22,14 @@ return {
 				},
 			})
 
-			vim.keymap.set("n", "<leader>1", ":silent!tabclose | silent!ToggleTerm 1<CR>", { silent = true })
-			vim.keymap.set("n", "<leader>3", ":silent!tabclose | silent!ToggleTerm 3<CR>", { silent = true })
-			vim.keymap.set("n", "<leader>2", ":silent!tabclose | silent!ToggleTerm 2<CR>", { silent = true })
-			vim.keymap.set("n", "<leader>4", ":silent!tabclose | silent!ToggleTerm 4<CR>", { silent = true })
-			vim.keymap.set("n", "<leader>5", ":silent!tabclose | silent!ToggleTerm 5<CR>", { silent = true })
+			vim.api.nvim_create_autocmd("BufLeave", {
+				pattern = "*",
+				callback = function()
+					if vim.fn.tabpagenr("$") > 2 then
+						vim.cmd("tabclose")
+					end
+				end,
+			})
 		end,
 	},
 }
