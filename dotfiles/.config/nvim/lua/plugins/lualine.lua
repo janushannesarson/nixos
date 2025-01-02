@@ -1,34 +1,42 @@
 return {
-	'nvim-lualine/lualine.nvim',
-	dependencies = { 'nvim-tree/nvim-web-devicons' },
+	"nvim-lualine/lualine.nvim",
+	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		-- vim.cmd([[colorscheme github_dark]])
 		require("lualine").setup({
-			theme = 'OceanicNext',
+			theme = "OceanicNext",
+			tabline = {},
 			winbar = {
 				lualine_a = {},
 				lualine_b = {},
-				lualine_c = { 'buffers' },
+				lualine_c = { "filename" },
 				lualine_x = {},
 				lualine_y = {},
-				lualine_z = {}
+				lualine_z = {},
 			},
 			inactive_winbar = {
 				lualine_a = {},
 				lualine_b = {},
-				lualine_c = { 'filename' },
+				lualine_c = {},
 				lualine_x = {},
 				lualine_y = {},
-				lualine_z = {}
+				lualine_z = {},
 			},
-
 			sections = {
-				lualine_a = { 'mode' },
-				lualine_b = { 'branch', 'diff', 'diagnostics' },
+				lualine_a = { "mode" },
+				lualine_b = { "branch", "diff", "diagnostics" },
+				lualine_c = { "buffer" },
+				lualine_x = { "encoding", "fileformat", "filetype" },
+				lualine_y = { "progress" },
+				lualine_z = { "location" },
+			},
+			inactive_sections = {
+				lualine_a = {},
+				lualine_b = {},
 				lualine_c = {},
-				lualine_x = { 'encoding', 'fileformat', 'filetype' },
-				lualine_y = { 'progress' },
-				lualine_z = { 'location' }
+				lualine_x = {},
+				lualine_y = {},
+				lualine_z = {},
 			},
 		})
 	end,

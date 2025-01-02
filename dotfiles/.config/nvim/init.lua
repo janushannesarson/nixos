@@ -9,10 +9,10 @@ vim.opt.tabstop = 4
 
 -- keybindings
 -- Navigate between windows using Ctrl-h/j/k/l
-vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-h>", "<C-w>h", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
 
 -- Buffers
 vim.keymap.set("n", "<S-h>", ":bprev<CR>")
@@ -37,6 +37,7 @@ vim.keymap.set("n", "N", "Nzz")
 vim.cmd([[highlight! link SignColumn Normal]])
 vim.cmd([[:tnoremap <Esc> <C-\><C-n>]])
 vim.cmd([[set clipboard+=unnamedplus]])
+-- vim.cmd([[set showtabline=0]])
 
 -- Navigate the quickfix list
 vim.keymap.set("n", "]q", ":cnext<CR>", { desc = "Next quickfix item", silent = true })

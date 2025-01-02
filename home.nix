@@ -17,28 +17,20 @@ in
   };
 
   home.packages = with pkgs; [
-
+	lua-language-server
+	nixd
+	rust-analyzer
+	vscode-langservers-extracted
   ];
 
-  ################
-  ### Programs ###
-  ################
-
   programs.yazi.enable = true;
-
-
-  # LSP
-  programs.lua-language-server.enable = true;
-  programs.rust-analyzer.enable = true;
-  programs.emmet-ls.enable = true;
-  programs.vscode-langservers-extracted.enable = true;
-  programs.nixd.enable = true;
 
   # Terminal Emulator
   programs.kitty = {
     enable = true;
     shellIntegration.enableFishIntegration = true;
   };
+
   programs.bash = {
     enable = true;
     initExtra = ''
@@ -49,6 +41,7 @@ in
       		  fi
       		  '';
   };
+
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
@@ -66,6 +59,7 @@ in
       '';
     };
   };
+
   programs.fzf = {
     enable = true;
     enableFishIntegration = true;
@@ -77,12 +71,10 @@ in
       set -s escape-time 0
       set -g base-index 1
       set -g pane-base-index 1
+	  setw -g mode-keys vi
       bind-key -r f run-shell "tmux neww ~/.local/bin/tmuxsessionizer.sh"
     '';
   };
-
-  # Browser
-  programs.firefox.enable = true;
 
   programs.direnv = {
     enable = true;
@@ -90,6 +82,23 @@ in
     # enableFishIntegration = true;# true by default
     enableBashIntegration = true;
   };
+
+  # Application Launcher
+  programs.rofi = {
+    enable = true;
+    package = pkgs.rofi-wayland;
+    extraConfig = {
+      modi = "drun,run,filebrowser,window";
+      show-icons = true;
+      display-drun = "APPS";
+      display-run = "RUN";
+      display-filebrowser = "FILES";
+      display-window = "WINDOW";
+      drun-display-format = "{name}";
+      window-format = "{w} · {c} · {t}";
+    };
+  };
+
 
   # Text Editor
   programs.neovim = {
@@ -104,7 +113,6 @@ in
       luajit
 
       # Language servers
-      lua-language-server
       nil
       nixd
 
@@ -130,34 +138,10 @@ in
     };
   };
 
-  # Application Launcher
-  programs.rofi = {
-    enable = true;
-    package = pkgs.rofi-wayland;
-    extraConfig = {
-      modi = "drun,run,filebrowser,window";
-      show-icons = true;
-      display-drun = "APPS";
-      display-run = "RUN";
-      display-filebrowser = "FILES";
-      display-window = "WINDOW";
-      drun-display-format = "{name}";
-      window-format = "{w} · {c} · {t}";
-    };
-  };
-
-  # Compositor
-  wayland.windowManager.hyprland = {
-    # package = inputs.hyprland.packages.${pkgs.system}.hyprland;
-    enable = true;
-    extraConfig = bultins.readFile "./home-manager/hyprland/extraConfig.conf";
-  };
-
   # Out of store symlinks
-  home.file.".local/bin".source = config.lib.file.mkOutOfStoreSymlink "/home/janus/repos/dotfiles/.local/bin/";
-  xdg.configFile = {
-    "nvim".source = config.lib.file.mkOutOfStoreSymlink "./../dotfiles/.config/nvim/";
-  };
+  home.file.".local/bin".source = config.lib.file.mkOutOfStoreSymlink "/${homeDirectory}/repos/dotfiles/.local/bin/";
+  home.file.".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "/${homeDirectory}/repos/nixos/dotfiles/.config/hypr";
+  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/${homeDirectory}/repos/nixos/dotfiles/.config/nvim";
 
   home.stateVersion = "23.11";
 }
