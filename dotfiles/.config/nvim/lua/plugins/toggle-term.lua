@@ -5,9 +5,10 @@ return {
 		version = "*",
 		config = function()
 			require("toggleterm").setup({
+				shade_terminals = true,
 				open_mapping = [[<c-t>]],
 				direction = "tab",
-				start_in_insert = false,
+				start_in_insert = true,
 				insert_mappings = true,
 				terminal_mappings = true,
 				winbar = {

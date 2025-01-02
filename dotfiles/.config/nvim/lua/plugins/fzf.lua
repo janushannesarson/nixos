@@ -29,6 +29,8 @@ return {
 		-- visual
 		vim.keymap.set("v", "<leader>fg", require("fzf-lua").grep_visual, { desc = "Grep Visual" })
 
+		vim.keymap.set("n", "<leader>fc", require("fzf-lua").colorschemes, { desc = "Color Schemes" })
+
 		-- local fzf = require('fzf-lua')
 		-- local function get_directories_in_repos()
 		-- 	local repos_path = vim.fn.expand("~/repos")

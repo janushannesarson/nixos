@@ -2,7 +2,6 @@ return {
 	"nvim-lualine/lualine.nvim",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
-		-- vim.cmd([[colorscheme github_dark]])
 		require("lualine").setup({
 			theme = "OceanicNext",
 			tabline = {},
