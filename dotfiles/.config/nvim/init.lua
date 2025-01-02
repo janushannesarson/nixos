@@ -15,8 +15,8 @@ vim.opt.tabstop = 4
 -- vim.api.nvim_set_keymap("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
 
 -- Buffers
-vim.keymap.set("n", "<S-h>", ":bprev<CR>")
-vim.keymap.set("n", "<S-l>", ":bnext<CR>")
+vim.keymap.set("n", "<S-h>", ":silent!tabclose | bprev<CR>", { silent = true }) -- tabclose is a toggleterm workaround to avoid error
+vim.keymap.set("n", "<S-l>", ":silent!tabclose | bnext<CR>", { silent = true })
 vim.keymap.set("n", "<leader>q", ":bd<CR>", { desc = "Buffer Delete" })
 vim.keymap.set("n", "<leader>Q", ":bd!<CR>", { desc = "Buffer Delete!" })
 
@@ -37,7 +37,7 @@ vim.keymap.set("n", "N", "Nzz")
 vim.cmd([[highlight! link SignColumn Normal]])
 vim.cmd([[:tnoremap <Esc> <C-\><C-n>]])
 vim.cmd([[set clipboard+=unnamedplus]])
--- vim.cmd([[set showtabline=0]])
+vim.cmd([[set showtabline=0]])
 
 -- Navigate the quickfix list
 vim.keymap.set("n", "]q", ":cnext<CR>", { desc = "Next quickfix item", silent = true })
