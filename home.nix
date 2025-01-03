@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  unstablePkgs,
   ...
 }:
 let
@@ -16,12 +17,14 @@ in
     inherit username homeDirectory;
   };
 
-  home.packages = with pkgs; [
+  home.packages = (with pkgs; [
 	lua-language-server
 	nixd
 	rust-analyzer
 	vscode-langservers-extracted
-  ];
+  ]) ++ (with unstablePkgs; [
+	jetbrains.idea-ultimate
+  ]);
 
   home.shellAliases = {
   	tm = "tmux new -As0";
