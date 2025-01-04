@@ -1,0 +1,47 @@
+{
+    "editor.inlayHints.enabled": "off",
+    "editor.formatOnSave": false,
+    "editor.suggest.insertMode": "replace",
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontSize": 13,
+    "editor.fontLigatures": true,
+    "editor.cursorBlinking": "solid",
+    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "terminal.integrated.scrollback": 100000,
+    "editor.linkedEditing": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "window.zoomLevel": 0.5,
+    "launch": {},
+    "[json]": {},
+    "workbench.statusBar.visible": true,
+    "editor.minimap.enabled": false,
+    "update.showReleaseNotes": false,
+    "zenMode.hideLineNumbers": false,
+    "zenMode.hideStatusBar": false,
+    "editor.lineNumbers": "relative",
+    // "workbench.panel.opensMaximized": "always",
+    "vim.leader": "<Space>",
+    "vim.useSystemClipboard": true,
+    "vim.highlightedyank.enable": true,
+    "vim.highlightedyank.color": "rgba(255, 255, 0, 0.5)",
+    "vim.hlsearch": true,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "go.toolsManagement.autoUpdate": true,
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.stickyScroll.enabled": false,
+    "editor.cursorSurroundingLines": 10,
+    "workbench.colorTheme": "GitHub Dark",
+    "workbench.activityBar.location": "hidden",
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    "redhat.telemetry.enabled": false
+}
