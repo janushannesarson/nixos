@@ -17,19 +17,23 @@ in
     inherit username homeDirectory;
   };
 
-  home.packages = (with pkgs; [
-	lua-language-server
-	nixd
-	rust-analyzer
-	vscode-langservers-extracted
-  ]) ++ (with unstablePkgs; [
-	jetbrains.idea-ultimate
-	jdk23
-	maven
-  ]);
+  home.packages =
+    (with pkgs; [
+      lua-language-server
+      nixd
+      rust-analyzer
+      vscode-langservers-extracted
+    ])
+    ++ (with unstablePkgs; [
+      jetbrains.idea-ultimate
+      jdk23
+      maven
+
+      nixfmt-rfc-style
+    ]);
 
   home.shellAliases = {
-  	tm = "tmux new -As0";
+    tm = "tmux new -As0";
   };
 
   programs.yazi.enable = true;
@@ -76,11 +80,12 @@ in
 
   programs.tmux = {
     enable = true;
+    plugins = [ pkgs.tmuxPlugins.pain-control ];
     extraConfig = ''
       set -s escape-time 0
       set -g base-index 1
       set -g pane-base-index 1
-	  setw -g mode-keys vi
+      setw -g mode-keys vi
       bind-key -r f run-shell "tmux neww ~/.local/bin/tmuxsessionizer.sh"
     '';
   };
@@ -107,7 +112,6 @@ in
       window-format = "{w} · {c} · {t}";
     };
   };
-
 
   # Text Editor
   programs.neovim = {
@@ -137,7 +141,7 @@ in
     enable = true;
     userName = "janushannesarson";
     userEmail = "janushannesarson@gmail.com";
-	difftastic.enable = true;
+    difftastic.enable = true;
   };
 
   programs.lazygit = {
@@ -148,9 +152,12 @@ in
   };
 
   # Out of store symlinks
-  home.file.".local/bin".source = config.lib.file.mkOutOfStoreSymlink "/${homeDirectory}/repos/dotfiles/.local/bin/";
-  home.file.".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "/${homeDirectory}/repos/nixos/dotfiles/.config/hypr";
-  home.file.".config/nvim".source = config.lib.file.mkOutOfStoreSymlink "/${homeDirectory}/repos/nixos/dotfiles/.config/nvim";
+  home.file.".local/bin".source =
+    config.lib.file.mkOutOfStoreSymlink "/${homeDirectory}/repos/dotfiles/.local/bin/";
+  home.file.".config/hypr".source =
+    config.lib.file.mkOutOfStoreSymlink "/${homeDirectory}/repos/nixos/dotfiles/.config/hypr";
+  home.file.".config/nvim".source =
+    config.lib.file.mkOutOfStoreSymlink "/${homeDirectory}/repos/nixos/dotfiles/.config/nvim";
 
   home.stateVersion = "23.11";
 }

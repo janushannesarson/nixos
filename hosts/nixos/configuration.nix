@@ -166,12 +166,10 @@ in
     postgresql
     inotify-tools
 
-
     # Screenshot
     swappy
     grim
     slurp
-
 
     pavucontrol # Audio control gui
 
@@ -184,11 +182,11 @@ in
     prettierd
 
     brightnessctl
-	home-manager
+    home-manager
 
     discord
     vesktop # Third party Discord client
-    
+
     vim
     ripgrep
     unzip

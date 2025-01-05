@@ -1,7 +1,8 @@
 { inputs, pkgs, ... }:
 let
   username = "janus";
-in {
+in
+{
   imports = [
     ./hardware-configuration.nix
     inputs.home-manager.nixosModule
@@ -39,7 +40,7 @@ in {
   fonts.packages = with pkgs; [
     (nerdfonts.override { fonts = [ "CascadiaCode" ]; })
     noto-fonts
-	font-awesome
+    font-awesome
   ];
 
   # Home Manager
@@ -51,10 +52,10 @@ in {
     users.janus.imports = [ ./home.nix ];
   };
 
-	services.postgresql = {
-	  enable = true;
-	  package = pkgs.postgresql; 
-	};
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql;
+  };
 
   # Bluetooth
   hardware.bluetooth.enable = true;
@@ -105,8 +106,11 @@ in {
   users.users.janus = {
     isNormalUser = true;
     description = "Janus Hannesarson";
-    extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
+    packages = with pkgs; [ ];
   };
 
   # Enable automatic login for the user.
@@ -136,12 +140,12 @@ in {
     xwayland.enable = true;
   };
 
-	programs.steam = {
-	  enable = true;
-	  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-	  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-	  localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-	};
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
   # List packages installed in system profile. To search, run:
@@ -153,13 +157,12 @@ in {
     libnotify
     swww
     stow
-	networkmanagerapplet
+    networkmanagerapplet
 
-	elixir_1_16
-	postgresql
-	inotify-tools
+    elixir_1_16
+    postgresql
+    inotify-tools
 
-    
     vscode-fhs
     google-chrome
     neovim
@@ -177,7 +180,7 @@ in {
     emmet-ls
 
     vscode-langservers-extracted
-    
+
     vim
     ripgrep
     unzip
@@ -194,7 +197,10 @@ in {
   nixpkgs.config.allowUnfree = true;
 
   # experimental features
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   nix.settings = {
     substituters = [ "https://hyprland.cachix.org" ];
@@ -206,4 +212,3 @@ in {
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   system.stateVersion = "24.05";
 }
-

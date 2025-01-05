@@ -619,7 +619,8 @@ in
   };
 
   # Out of store symlinks
-  home.file.".local/bin".source = config.lib.file.mkOutOfStoreSymlink "/home/janus/repos/dotfiles/.local/bin/";
+  home.file.".local/bin".source =
+    config.lib.file.mkOutOfStoreSymlink "/home/janus/repos/dotfiles/.local/bin/";
   xdg.configFile = {
     # "kitty".source = "${dotfiles}/.config/kitty";
     # "hypr".source = "${dotfiles}/.config/hypr";
