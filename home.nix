@@ -24,6 +24,8 @@ in
 	vscode-langservers-extracted
   ]) ++ (with unstablePkgs; [
 	jetbrains.idea-ultimate
+	jdk23
+	maven
   ]);
 
   home.shellAliases = {
