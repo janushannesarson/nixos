@@ -43,10 +43,4 @@ vim.cmd([[set showtabline=0]])
 vim.keymap.set("n", "<c-j>", ":cnext<CR>", { desc = "Next quickfix item", silent = true })
 vim.keymap.set("n", "<c-k>", ":cprevious<CR>", { desc = "Previous quickfix item", silent = true })
 
--- vim.cmd("highlight Normal ctermbg=black guibg=black")
--- -- Set terminal-specific settings to ensure it stays pitch black
--- vim.cmd("autocmd TermOpen * setlocal background=dark")
---
--- vim.o.background = "dark"
--- vim.cmd("highlight Normal ctermbg=black guibg=black")
-vim.cmd([[colorscheme gruvbox]])
+vim.cmd([[colorscheme github_dark]])

@@ -14,7 +14,8 @@ return {
 				winbar = {
 					enabled = false,
 					name_formatter = function(term) --  term: Terminal
-						return term.name
+						local number = term.name:match("f+")
+						return number
 					end,
 				},
 				float_opts = {

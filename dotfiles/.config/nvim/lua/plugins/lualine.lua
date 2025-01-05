@@ -3,12 +3,16 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		require("lualine").setup({
-			theme = "OceanicNext",
+			theme = "auto",
 			tabline = {},
+			options = {
+				component_separators = "",
+				section_separators = "",
+			},
 			winbar = {
 				lualine_a = {},
 				lualine_b = {},
-				lualine_c = { "buffers" },
+				lualine_c = {},
 				lualine_x = {},
 				lualine_y = {},
 				lualine_z = {},
@@ -16,18 +20,18 @@ return {
 			inactive_winbar = {
 				lualine_a = {},
 				lualine_b = {},
-				lualine_c = { "filename" },
+				lualine_c = {},
 				lualine_x = {},
 				lualine_y = {},
 				lualine_z = {},
 			},
 			sections = {
-				lualine_a = { "mode" },
-				lualine_b = { "branch", "diff", "diagnostics" },
-				lualine_c = { "buffer", "filename" },
-				lualine_x = { "encoding", "fileformat", "filetype" },
-				lualine_y = { "progress" },
-				lualine_z = { "location" },
+				lualine_a = {},
+				lualine_b = { "buffers" },
+				lualine_c = {},
+				lualine_x = {},
+				lualine_y = {},
+				lualine_z = { "filename" },
 			},
 			inactive_sections = {
 				lualine_a = {},
