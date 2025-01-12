@@ -30,6 +30,10 @@ in
       maven
 
       nixfmt-rfc-style
+
+      postgresql
+      elixir_1_18
+      elixir-ls
     ]);
 
   home.shellAliases = {
@@ -82,10 +86,18 @@ in
     enable = true;
     plugins = [ pkgs.tmuxPlugins.pain-control ];
     extraConfig = ''
-      set -s escape-time 0
+      set -s escape-time 10
       set -g base-index 1
       set -g pane-base-index 1
       setw -g mode-keys vi
+
+      set -g status-left "#(basename '#S') "
+      set -g status-right '#S    #W'
+
+      bind-key -T copy-mode-vi v send -X begin-selection
+      bind-key -T copy-mode-vi V send -X select-line
+      bind-key -T copy-mode-vi y send -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
+
       bind-key -r f run-shell "tmux neww ~/.local/bin/tmuxsessionizer.sh"
     '';
   };
