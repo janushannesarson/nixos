@@ -99,8 +99,13 @@
     "when": "vim.mode == 'Normal' && editorTextFocus"
   },
   {
-    "key": "space space",
+    "key": "ctrl+p",
     "command": "workbench.action.quickOpen",
+    "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "space r",
+    "command": "workbench.action.openRecent",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
   },
   {
@@ -204,47 +209,23 @@
   },
   // Terminal/workbench
   {
-    "key": "ctrl-h",
+    "key": "ctrl-p",
     "command": "workbench.action.previousPanelView",
     "when": "panelVisible"
   },
   {
-    "key": "ctrl-l",
+    "key": "ctrl-n",
     "command": "workbench.action.nextPanelView",
     "when": "panelVisible"
   },
   {
-    "key": "ctrl-j",
-    "command": "workbench.action.terminal.focusNext",
-    "when": "terminalFocus"
+    "key": "ctrl+t",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "!terminalFocus"
   },
   {
-    "key": "ctrl-k",
-    "command": "workbench.action.terminal.focusPrevious",
-    "when": "terminalFocus"
-  },
-  {
-    "key": "ctrl-t",
-    "command": "workbench.action.closePanel"
-  },
-  {
-    "key": "ctrl-t",
-    "command": "runCommands",
-    "when": "editorFocus",
-    "args": {
-      "commands": [
-        "workbench.action.focusPanel"
-      ]
-    }
-  },
-  {
-    "key": "ctrl-n",
-    "command": "workbench.action.terminal.new",
-    "when": "terminalFocus"
-  },
-  {
-    "key": "ctrl-shift-q",
-    "command": "workbench.action.terminal.kill",
+    "key": "ctrl+t",
+    "command": "workbench.action.terminal.toggleTerminal",
     "when": "terminalFocus"
   },
   // Git hunks
@@ -267,5 +248,9 @@
     "key": "[ c",
     "command": "editor.action.dirtydiff.prev",
     "when": "vim.mode == 'Normal' && (editorTextFocus || !inputFocus)"
+  },
+  {
+    "key": "ctrl+alt+p",
+    "command": "-gitProjectManager.openProject"
   },
 ]

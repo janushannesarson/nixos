@@ -1,47 +1,69 @@
 {
-    "editor.inlayHints.enabled": "off",
-    "editor.formatOnSave": false,
-    "editor.suggest.insertMode": "replace",
-    "editor.fontFamily": "JetBrains Mono",
-    "editor.fontSize": 13,
-    "editor.fontLigatures": true,
-    "editor.cursorBlinking": "solid",
-    "terminal.integrated.fontFamily": "MesloLGS NF",
-    "terminal.integrated.scrollback": 100000,
-    "editor.linkedEditing": true,
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "window.zoomLevel": 0.5,
-    "launch": {},
-    "[json]": {},
-    "workbench.statusBar.visible": true,
-    "editor.minimap.enabled": false,
-    "update.showReleaseNotes": false,
-    "zenMode.hideLineNumbers": false,
-    "zenMode.hideStatusBar": false,
-    "editor.lineNumbers": "relative",
-    // "workbench.panel.opensMaximized": "always",
-    "vim.leader": "<Space>",
-    "vim.useSystemClipboard": true,
-    "vim.highlightedyank.enable": true,
-    "vim.highlightedyank.color": "rgba(255, 255, 0, 0.5)",
-    "vim.hlsearch": true,
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "go.toolsManagement.autoUpdate": true,
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "workbench.iconTheme": "material-icon-theme",
-    "editor.stickyScroll.enabled": false,
-    "editor.cursorSurroundingLines": 10,
-    "workbench.colorTheme": "GitHub Dark",
-    "workbench.activityBar.location": "hidden",
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
     },
-    "redhat.telemetry.enabled": false
+    "[json]": {},
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.cursorBlinking": "solid",
+    "editor.cursorSurroundingLines": 10,
+    "editor.fontFamily": "JetBrains Mono",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 13,
+    "editor.formatOnSave": true,
+    "editor.inlayHints.enabled": "off",
+    "editor.lineNumbers": "relative",
+    "editor.linkedEditing": true,
+    "editor.minimap.enabled": false,
+    "editor.stickyScroll.enabled": false,
+    "editor.suggest.insertMode": "replace",
+    "go.toolsManagement.autoUpdate": true,
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "launch": {},
+    "redhat.telemetry.enabled": false,
+    "terminal.integrated.fontFamily": "MesloLGS NF",
+    "terminal.integrated.scrollback": 100000,
+    "terminal.integrated.profiles.linux": {
+        "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+        },
+        "fish": {
+            "path": "fish",
+            "args": [
+                "-c",
+                "tmux new-session -A -s ${workspaceFolder}"
+            ]
+        },
+        "pwsh": {
+            "path": "pwsh",
+            "icon": "terminal-powershell"
+        },
+    },
+    "terminal.integrated.defaultProfile.linux": "fish",
+    "update.showReleaseNotes": false,
+    "vim.highlightedyank.color": "rgba(255, 255, 0, 0.5)",
+    "vim.highlightedyank.enable": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<Space>",
+    "vim.useSystemClipboard": true,
+    "window.menuBarVisibility": "toggle",
+    "window.zoomLevel": 0.5,
+    "workbench.colorTheme": "Dracula Theme",
+    "workbench.iconTheme": "Monokai Pro Icons",
+    "workbench.panel.opensMaximized": "always",
+    "workbench.sideBar.location": "right",
+    "workbench.statusBar.visible": false,
+    "zenMode.hideLineNumbers": false,
+    "zenMode.hideStatusBar": false,
+    "update.mode": "none",
+    "workbench.editor.showTabs": "multiple",
+    "workbench.activityBar.location": "hidden",
 }
